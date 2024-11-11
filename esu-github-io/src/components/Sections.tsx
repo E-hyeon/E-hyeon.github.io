@@ -1,28 +1,35 @@
 // src/components/Section.tsx
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
 interface SectionProps {
   id: string;
   backgroundColor: string;
-  title: string;
+  title?: string;
+  children?: ReactNode;
 }
 
 const SectionContainer = styled.div<{ backgroundColor: string }>`
   height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: ${(props) => props.backgroundColor};
   color: #fff;
-  font-size: 2.5rem;
   scroll-snap-align: start;
 `;
 
-const Section: React.FC<SectionProps> = ({ id, backgroundColor, title }) => {
+const Title = styled.h2`
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+`;
+
+const Section: React.FC<SectionProps> = ({ id, backgroundColor, title, children }) => {
   return (
     <SectionContainer id={id} backgroundColor={backgroundColor}>
-      <h2>{title}</h2>
+      {title && <Title>{title}</Title>}
+      {children}
     </SectionContainer>
   );
 };
