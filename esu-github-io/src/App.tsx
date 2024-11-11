@@ -1,21 +1,33 @@
+// src/App.tsx
 import React from 'react';
+import GlobalStyle from './styles/GlobalStyle';
+import Home from './pages/Home';
+import About from './pages/About';
+import Profile from './pages/Profile';
+import Contact from './pages/Contact';
+import Services from './pages/Services';
+import Portfolio from './pages/Portfolio';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+`;
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>조은정의 프로필 페이지</h1>
-        <p>안녕하세요! 저는 개발을 공부하고 있는 조은정입니다.</p>
-        <a
-          className="App-link"
-          href="https://github.com/E-hyeon"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GitHub 프로필 보기
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyle />
+      <Container>
+        <Home />
+        <About />
+        <Profile />
+        <Services />
+        <Portfolio />
+        <Contact />
+      </Container>
+    </>
   );
 };
 
