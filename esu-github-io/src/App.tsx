@@ -1,7 +1,7 @@
 // src/App.tsx
 import React from 'react';
 import GlobalStyle from './styles/GlobalStyle';
-import Home from './pages/Home';
+import Name from './pages/Name';
 import About from './pages/About';
 import Profile from './pages/Profile';
 import Contact from './pages/Contact';
@@ -13,16 +13,19 @@ const Container = styled.div`
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
   height: 100vh;
+  width: 100vw;
+  scroll-behavior: smooth; 
 `;
+
 
 const App: React.FC = () => {
   return (
     <>
       <GlobalStyle />
       <Container>
-        <Home />
-        <About />
+        <Name />
         <Profile />
+        <About />
         <Services />
         <Portfolio />
         <Contact />
